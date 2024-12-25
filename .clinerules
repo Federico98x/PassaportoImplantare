@@ -1,0 +1,197 @@
+> **Important**: Before coding, always **read** the latest versions of:
+> - **ARCHITECTURE_AND_STANDARDS.md**  
+> - **IMPLEMENTATION.md**  
+> Then, after **each commit**, **update** both **PROGRESS.md** and **CHANGELOG.md**.  
+> ALL TEXTS in the WEBAPP should be in ITALIAN
+
+---
+## **1. Project Context**  
+- **Project Type:** Web application (Node.js + Express backend, React frontend).  
+- **Tech Stack:** Node.js, Express, MongoDB (Mongoose), React, JWT, bcrypt/Argon2, optional Docker.  
+- **File Structure:**  
+  - `backend/` and `frontend/` separation.  
+  - Folders for `controllers/`, `models/`, `services/`, `routes/`, etc. (See **ARCHITECTURE_AND_STANDARDS.md**).  
+- **API Integration:** RESTful approach with secured endpoints (JWT-based auth, JSON payloads).  
+- **Database:** MongoDB with Mongoose for schema definitions and data queries.  
+
+---
+## **2. Feature Requirements**  
+- **UI/UX Sections:**  
+  - Login & signup pages (React).  
+  - Dashboard for creating, listing, and viewing “Passaporto Implantare” records.  
+  - Admin interface (role-based) to manage users and subscriptions.  
+  - Patient interface for viewing personal passports.  
+- **Forms & Validation:**  
+  - Robust form validations (React + server-side checks in Express).  
+  - Clear user feedback on errors and success states.  
+- **Responsive Design:**  
+  - The React frontend should adapt to desktop, tablet, and mobile.  
+- **Navigation & Routing:**  
+  - Frontend routes with protected sections (authenticated/role-based).  
+  - REST endpoints on the backend: `auth/`, `passport/`, etc.  
+- **Authentication/Authorization:**  
+  - JWT short-lived tokens.  
+  - Role-based access (Admin, Dentist, Patient).  
+- **Payments/Additional Features:**  
+  - Subscription model for clinics (Admin can manage).  
+  - PDF generation (pdfkit or Puppeteer).  
+- **State Management:**  
+  - React Context or similar (Redux optional).  
+
+---
+## **3. Styling & Design**  
+- **CSS Framework:**  
+  - Possible integration of Tailwind, Bootstrap, or Material UI.  
+- **UI Libraries:**  
+  - Material UI or other design systems as needed for consistent styling.
+
+---
+## **4. JavaScript Instructions**  
+- **Validation & Libraries:**  
+  - Use `express-validator` or similar for server-side validation.  
+  - Use `jwt`, `bcrypt` (or `argon2`) for auth.  
+- **Code Conventions:**  
+  - Modern ES (ES6+) features.  
+  - `const` or `let`, avoiding `var`.  
+  - Lint with **ESLint**, format with **Prettier**.  
+- **Testing:**  
+  - **Jest** or **Mocha**/Chai for unit and integration tests.  
+
+---
+## **5. Testing**  
+- **Test Frameworks:**  
+  - Backend: Jest or Mocha + Chai.  
+  - Frontend: Jest + React Testing Library (or Cypress for E2E).  
+- **Coverage Requirements:**  
+  - Aim for high coverage in critical routes (auth, passport creation).  
+- **Testing Philosophy:**  
+  - Write unit tests for controllers, services, and utilities.  
+  - Write integration tests for critical user journeys (signup → create passport → PDF generation).  
+
+---
+## **6. Project Management**  
+- **Feature Plan:**  
+  - Refer to **IMPLEMENTATION.md** for tasks and milestones.  
+- **Documentation:**  
+  - Always consult `AUTHENTICATION.md`, `PDF_MODULE.md`, `ARCHITECTURE_AND_STANDARDS.md`.  
+- **Progress Updates:**  
+  - **After every commit**, update **PROGRESS.md** and **CHANGELOG.md** with a summary.  
+- **Next Steps:**  
+  - Based on the **IMPLEMENTATION.md** roadmap, propose logical follow-ups or fixes.
+
+---
+## **7. Integration with Global AI Rules**  
+- **Global vs. Project Rules:**  
+  - If any conflict arises, **user instructions** here override.  
+- **Confirmation:**  
+  - Always clarify if requirements seem contradictory.
+
+---
+## **8. Additional Project-Specific Notes**  
+- Enforce strict GDPR compliance (minimize stored data, provide right to erasure).  
+- Use short-lived JWT tokens and consider refresh tokens for stable sessions.  
+- Store digital passports (PDF) securely; see `PDF_MODULE.md`.
+
+---
+## **9. Core Programming Principles**  
+- **Code Quality:**  
+  - Clean, readable, well-documented.  
+- **Efficiency:**  
+  - Optimize queries, only load necessary data.  
+- **Error Handling:**  
+  - Use robust try/catch and log critical issues.  
+- **Testing:**  
+  - Always test newly added code before merging.  
+- **Design Patterns:**  
+  - Keep to MVC-like structure (controllers/services/models).  
+- **Security:**  
+  - Adhere to OWASP guidelines; sanitize all inputs.  
+- **Simplicity:**  
+  - Implement straightforward solutions that meet the specs.
+
+---
+## **10. Code Style and Formatting**  
+- **Indentation:**  
+  - Tabs for indentation.  
+- **Naming Conventions:**  
+  - Variables: `snake_case`  
+  - Classes/Components: `PascalCase`  
+  - Functions: `camelCase`  
+- **Comments:**  
+  - Use concise JSDoc for complex functions, short inline comments for clarity.  
+- **Auto-Formatting:**  
+  - Use Prettier to ensure consistent style.  
+- **Line Length:**  
+  - Target ~100 characters max.  
+
+---
+## **11. General Behavior**  
+- **Incremental Changes:**  
+  - Tackle one feature or fix at a time.  
+- **Preserve Working Code:**  
+  - Avoid refactoring stable features without cause.  
+- **Verification:**  
+  - Test each change thoroughly.  
+- **No Unnecessary Overwrites:**  
+  - Keep existing manual changes unless explicitly told to replace them.  
+- **Use Documentation:**  
+  - Always reread `ARCHITECTURE_AND_STANDARDS.md` and `IMPLEMENTATION.md` before starting a new task.  
+- **Stop & Clarify:**  
+  - If uncertain, ask for clarifications or re-check user instructions.  
+- **Simplicity Emphasis:**  
+  - Only implement what is necessary for the current phase or feature.
+
+---
+## **12. Language-Specific Guidelines**
+
+### **12.1 JavaScript (Backend & Frontend)**  
+- **Modern ECMAScript:**  
+  - Use arrow functions where suitable, destructuring, etc.  
+- **Linting:**  
+  - **ESLint** with recommended config (or Airbnb style).  
+- **Testing:**  
+  - **Jest** is preferred for unit tests, plus `supertest` for API endpoints.  
+- **Comments:**  
+  - JSDoc for documenting major functions or classes.
+
+---
+## **13. File Handling**  
+- **Modularity:**  
+  - Keep files small and focused.  
+- **Imports:**  
+  - Do not modify external files unless necessary; create a new file or extend.  
+- **Organization:**  
+  - Follow the directory structure from **ARCHITECTURE_AND_STANDARDS.md**.
+
+---
+## **14. Development Best Practices**  
+1. **Component Dependencies:**  
+   - Document any new dependencies in `package.json` and in `docs/` if needed.  
+2. **Change Protocol:**  
+   - **Identify** the area to change.  
+   - **Note** current state in `PROGRESS.md`.  
+   - **Implement** the single change.  
+   - **Test** immediately.  
+3. **Preserve Working Features:**  
+   - Don’t break existing functionalities.  
+4. **Test Real Usage:**  
+   - Manual check of the UI or API endpoints.
+
+---
+## **15. Version Control**  
+- **Branches:**  
+  - Use branches for new features or bug fixes.  
+- **Known-Good Versions:**  
+  - Tag or label working releases.  
+- **Last Known Good State:**  
+  - Keep a stable version for fallback.
+
+---
+## **16. Pre-Response Verification**  
+Before finalizing any code changes or merges:  
+1. **Review** all relevant docs (especially `ARCHITECTURE_AND_STANDARDS.md`, `IMPLEMENTATION.md`).  
+2. **Stop & Verify** the potential impact.  
+3. **Preserve** any existing manual or user-provided changes.  
+4. **Update** `PROGRESS.md` and `CHANGELOG.md` with every commit.  
+
+> **Warning**: If about to violate instructions or over-engineer a solution, refer back to the “Simplicity” principle and user instructions.
